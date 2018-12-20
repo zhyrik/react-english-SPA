@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Auth from './auth/Auth'
+import Home from './layouts/Home'
 
 
 export default class extends Component {
@@ -9,7 +11,8 @@ export default class extends Component {
     return (
       <div>
         <Header />
-        <Auth />
+        <Route path="/" component={Home} />
+        <Route path="/login" component={Auth} />
         <Footer />
       </div>
     )

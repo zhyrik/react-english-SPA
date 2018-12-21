@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardActions, CardMedia, CardContent, Typography, IconButton, CardActionArea } from '@material-ui/core'
+import {Card, CardActions, CardContent, Typography, IconButton, CardActionArea } from '@material-ui/core'
 import {Favorite, Star} from '@material-ui/icons'
 
 const style ={

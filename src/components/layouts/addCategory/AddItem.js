@@ -2,13 +2,43 @@ import React, {Component} from 'react'
 import {TextField, Button} from '@material-ui/core'
 import Form from '../../auth/Form'
 
-const style = {
-  button: {
-    marginBottom: 8
+class Item {
+  constructor (native, english, url) {
+    this.native = native
+    this.english = english
+    this.url = url
   }
 }
 
 export default class extends Component {
+  state = {
+    items: [],
+    native: 'горіх',
+    english: 'nut',
+    url: 'https://www.google.com/search?q=горіх&tbs=isz:m&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjdyKH9_LHfAhUEfywKHSIiDesQpwUIHQ&biw=1366&bih=626&dpr=1'
+  }
+
+  linkToTranslate (e) {
+    e.preventDefault()
+    window.open(`https://translate.google.com.ua/?hl=ru&authuser=0#view=home&op=translate&sl=uk&tl=en&text=${this.state.native}`, '_blank')
+  }
+  getUrl (e) {
+    e.preventDefault()
+    window.open(`https://www.google.com/search?q=${this.state.native}&tbs=isz:m&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjdyKH9_LHfAhUEfywKHSIiDesQpwUIHQ&biw=1366&bih=626&dpr=1`, '_blank')
+  }
+  createItem (e) {
+    e.preventDefault()
+    const items = [...this.state.items]
+    const item = new Item(this.state.native, this.state.english, this.state.url)
+    items.push(item)
+    this.setState({
+      items,
+      native: '',
+      english: '',
+      url: ''
+    })
+    console.log(this.state.items)
+  }
 
   render () {
     return (
@@ -20,6 +50,8 @@ export default class extends Component {
           name="native"
           margin="normal"
           variant="filled"
+          value={this.state.native}
+          onChange={(e) => { this.setState({native: e.target.value}) }}
         />
         <TextField
           id="english-input"
@@ -28,8 +60,15 @@ export default class extends Component {
           name="english"
           margin="normal"
           variant="filled"
+          value={this.state.english}
+          onChange={(e) => { this.setState({english: e.target.value}) }}
         />
-        <Button variant="contained" color="primary" style={style.button}>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{marginBottom: 8}}
+          onClick={this.linkToTranslate.bind(this)}
+        >
           google translate
         </Button>
         <TextField
@@ -39,11 +78,23 @@ export default class extends Component {
           name="img"
           margin="normal"
           variant="filled"
+          value={this.state.url}
+          onChange={(e) => { this.setState({url: e.target.value}) }}
         />
-        <Button variant="contained" color="primary" style={{marginBottom: 16}}>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{marginBottom: 16}}
+          onClick={this.getUrl.bind(this)}
+        >
           get URL
         </Button>
-        <Button variant="contained" color="primary" style={style.button}>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{marginBottom: 8}}
+          onClick={this.createItem.bind(this)}
+        >
           Add
         </Button>
       </Form>

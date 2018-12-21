@@ -10,17 +10,19 @@ const style ={
 
 export default props =>
 <div style={style.wrap}>
-<Card>
-  <CardActionArea>
+  <Card>
     <div style={{display: 'flex', justifyContent: 'space-between'}}>
-      <CardContent>
-        <Typography component="h6" variant="h6" color="primary">
-          Fruits
-        </Typography>
-        <Typography variant="subtitle1" color="textSecondary">
-          Englinsh - Українська
-        </Typography>
-      </CardContent>
+      <CardActionArea >
+        <CardContent>
+          <Typography component="h6" variant="h6" color="primary">
+            Fruits
+          </Typography>
+          <Typography variant="subtitle1" color="textSecondary">
+            Englinsh - Українська
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
       <CardActions disableActionSpacing>
         <IconButton aria-label="Add to favorites">
           <Favorite />
@@ -34,6 +36,5 @@ export default props =>
         </IconButton>
       </CardActions>
     </div>
-  </CardActionArea>
-</Card>
+  </Card>
 </div>

@@ -1,9 +1,6 @@
 import React from 'react'
 import {AppBar, Toolbar, Typography, InputBase, Button} from '@material-ui/core'
 import {Search} from '@material-ui/icons'
-import WordCard from './card/WordCard'
-import CategoryCard from './card/CategorisCard'
-import Categoris from './home/Categoris'
 import MyCard from './card/CategoryCard2'
 const style = {
   inputWrap: {
@@ -37,13 +34,6 @@ export default props =>
 </div>
 <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
 <MyCard />
-<MyCard />
-<CategoryCard />
-<WordCard />
-<Categoris />
-<Categoris />
-<Categoris />
-<Categoris />
 </div>
 <MyCard />
 </div>

@@ -21,12 +21,12 @@ render() {
   return <Card style={style}>
     <AppBar position="static">
       <Tabs value={this.state.value} fullWidth>
-        <Tab label={this.props.title1} onClick={this.changeTab.bind(this, 0)} />
-        <Tab label={this.props.title2} onClick={this.changeTab.bind(this, 1)}/>
+        <Tab label={this.props.title1} onClick={this.changeTab.bind(this, 0)} key="0" />
+        <Tab label={this.props.title2} onClick={this.changeTab.bind(this, 1)} key="1" />
       </Tabs>
     </AppBar>
-    {this.state.value === 0 && <First />}
-    {this.state.value === 1 && <Second />}
+    {this.state.value === 0 && <First key="3" />}
+    {this.state.value === 1 && <Second key="4" />}
   </Card>
   }
 }

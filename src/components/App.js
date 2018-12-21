@@ -4,6 +4,7 @@ import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import Auth from './auth/Auth'
 import Home from './layouts/Home'
+import Learn from './layouts/learn/'
 
 
 export default class extends Component {
@@ -11,7 +12,8 @@ export default class extends Component {
     return (
       <div>
         <Header />
-        <Route path="/" component={Home} />
+        <Route path="/" exact component={Home} />
+        <Route path="/learn" component={Learn} />
         <Route path="/login" component={Auth} />
         <Footer />
       </div>

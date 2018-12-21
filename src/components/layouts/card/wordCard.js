@@ -4,7 +4,8 @@ import {Card, CardActionArea, CardMedia, CardContent, Typography} from '@materia
 const style ={
   wrap: {
     border: 'solid 1px black',
-    width: 240
+    width: 240,
+    margin: '0 auto'
   }
 }
 

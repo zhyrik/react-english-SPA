@@ -4,17 +4,22 @@ import {AppBar, Toolbar, IconButton, Typography, Button} from '@material-ui/core
 import MenuIcon from '@material-ui/icons/Menu'
 
 export default props =>
-<AppBar position="static">
-  <Toolbar>
-    <IconButton color="inherit" aria-label="Menu">
-      <MenuIcon />
-    </IconButton>
-    <NavLink to='/' exact style={{color: '#ffffff', textDecoration: 'none'}}>
-      <Button color="inherit" >Zhurik</Button>
-    </NavLink>
-    <Typography style={{flexGrow: 1}}></Typography>
-    <NavLink to='/login' style={{color: '#ffffff', textDecoration: 'none'}}>
-      <Button color="inherit" >Login</Button>
-    </NavLink>
-  </Toolbar>
-</AppBar>
+<div>
+  <AppBar position="static">
+    <Toolbar>
+      <IconButton color="inherit" aria-label="Menu">
+        <MenuIcon />
+      </IconButton>
+      <NavLink to='/' exact style={{color: '#ffffff', textDecoration: 'none'}}>
+        <Button color="inherit" >Zhurik</Button>
+      </NavLink>
+      <Typography style={{flexGrow: 1}}></Typography>
+      <NavLink to='/login' style={{color: '#ffffff', textDecoration: 'none'}}>
+        <Button color="inherit" >Login</Button>
+      </NavLink>
+      <NavLink to='/learn' style={{color: '#ffffff', textDecoration: 'none'}}>
+        <Button color="inherit" >Learn</Button>
+      </NavLink>
+    </Toolbar>
+  </AppBar>
+</div>

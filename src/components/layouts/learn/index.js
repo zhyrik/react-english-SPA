@@ -3,6 +3,7 @@ import { Route, NavLink} from 'react-router-dom'
 import {AppBar, Toolbar, Button} from '@material-ui/core'
 import MySlider from './Slider'
 import Englisn from './English'
+import Native from './Native'
 
 const style = {
   button: {
@@ -40,4 +41,5 @@ export default props =>
   </div>
   <Route path="/learn" exact component={MySlider} />
   <Route path="/learn/englins" exact component={Englisn} />
+  <Route path="/learn/native" exact component={Native} />
 </div>

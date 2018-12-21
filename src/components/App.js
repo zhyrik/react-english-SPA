@@ -5,6 +5,7 @@ import Footer from './layouts/Footer'
 import Auth from './auth/Auth'
 import Home from './layouts/Home'
 import Learn from './layouts/learn/'
+import AddCategory from './layouts/addCategory'
 
 
 export default class extends Component {
@@ -15,6 +16,7 @@ export default class extends Component {
         <Route path="/" exact component={Home} />
         <Route path="/learn" component={Learn} />
         <Route path="/login" component={Auth} />
+        <Route path="/add" component={AddCategory} />
         <Footer />
       </div>
     )

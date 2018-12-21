@@ -20,6 +20,9 @@ export default props =>
       <NavLink to='/learn' style={{color: '#ffffff', textDecoration: 'none'}}>
         <Button color="inherit" >Learn</Button>
       </NavLink>
+      <NavLink to='/add' style={{color: '#ffffff', textDecoration: 'none'}}>
+        <Button color="inherit" >add</Button>
+      </NavLink>
     </Toolbar>
   </AppBar>
 </div>

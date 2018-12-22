@@ -37,7 +37,7 @@ return <div>
   <Paper elevation={1} >
     <div style={style.wrap}>
       {links.map((link, index) => {
-        return <Fab variant="contained" href={link.link} size= "small" style={style.social}>
+        return <Fab variant="contained" href={link.link} size= "small" style={style.social} key={index} >
         {link.icon}
       </Fab>
       })}

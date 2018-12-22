@@ -105,7 +105,7 @@ class AddItem extends Component {
 
 function mapStateToProps (state) {
   return {
-    items: state.add.itmes
+    items: state.add.items
   }
 }
 

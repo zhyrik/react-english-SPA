@@ -13,9 +13,9 @@ class Item {
 export default class extends Component {
   state = {
     items: [],
-    native: 'горіх',
-    english: 'nut',
-    url: 'https://www.google.com/search?q=горіх&tbs=isz:m&tbm=isch&source=lnt&sa=X&ved=0ahUKEwjdyKH9_LHfAhUEfywKHSIiDesQpwUIHQ&biw=1366&bih=626&dpr=1'
+    native: '',
+    english: '',
+    url: ''
   }
 
   linkToTranslate (e) {
@@ -37,7 +37,6 @@ export default class extends Component {
       english: '',
       url: ''
     })
-    console.log(this.state.items)
   }
 
   render () {

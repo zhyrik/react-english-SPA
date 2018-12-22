@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {addItems} from '../../../store/actions/add'
 import {TextField, Button} from '@material-ui/core'
 import Form from '../../auth/Form'
 
@@ -10,9 +12,8 @@ class Item {
   }
 }
 
-export default class extends Component {
+class AddItem extends Component {
   state = {
-    items: [],
     native: '',
     english: '',
     url: ''
@@ -28,11 +29,12 @@ export default class extends Component {
   }
   createItem (e) {
     e.preventDefault()
-    const items = [...this.state.items]
+
     const item = new Item(this.state.native, this.state.english, this.state.url)
-    items.push(item)
+
+    this.props.addItems(item)
+
     this.setState({
-      items,
       native: '',
       english: '',
       url: ''
@@ -100,3 +102,19 @@ export default class extends Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    items: state.add.itmes
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    addItems: (item) => {
+      return dispatch(addItems(item))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddItem)

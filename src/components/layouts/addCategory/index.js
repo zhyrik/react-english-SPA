@@ -6,7 +6,7 @@ import CardForm from '../card/CardForm'
 import NewCategory from './NewCategoty'
 import AddItem from './AddItem'
 import Items from './Items'
-import axios from 'axios'
+
 
 class Category {
   constructor (title, items){

@@ -1,4 +1,4 @@
-import {ADD_ITEM, ADD_TITLE_OBJ} from '../actions/actionTipes'
+import {ADD_ITEM, ADD_TITLE_OBJ, DELETE_ITEMS} from '../actions/actionTipes'
 const initialState = {
   items: [],
   titleObj: {}
@@ -16,6 +16,11 @@ export default function addReducer (state = initialState, action) {
       return {
         ...state,
         titleObj: action.item
+      }
+    case DELETE_ITEMS: 
+      return {
+        ...state,
+        items: []
       }
     default:
       return state

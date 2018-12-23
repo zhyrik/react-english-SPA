@@ -6,7 +6,6 @@ import WordCard from '../card/WordCard'
 class Items extends React.Component {
 
   render () {
-    console.log('props', this.props.titleObj.title)
     return (
       <div style={{minWidth: '50%', maxWidth: '70%'}}>
         {this.props.titleObj.title

@@ -33,7 +33,6 @@ export default props =>
   </AppBar>
 </div>
 <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-<MyCard />
+//
 </div>
-<MyCard />
 </div>

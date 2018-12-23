@@ -10,7 +10,6 @@ const style ={
 }
 
 export default props => {
-  console.log('props', props.item.url);
 return <div style={style.wrap}>
 <Card>
   <CardActionArea>

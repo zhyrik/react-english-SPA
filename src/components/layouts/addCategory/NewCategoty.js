@@ -32,7 +32,8 @@ class NewCategory extends Component {
     })
   }
 
-  createTitleObj () {
+  createTitleObj (e) {
+    e.preventDefault()
     const titleObj = new TitleObj(this.state.title, this.state.description, this.state.english, this.state.native)
     this.props.addTitleObj(titleObj)
 

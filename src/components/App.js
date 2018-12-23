@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
-import Auth from './auth/Auth'
+import Auth from './layouts/auth/Auth'
 import Home from './layouts/Home'
 import Learn from './layouts/learn/'
 import AddCategory from './layouts/addCategory'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 export default class extends Component {
   // componentDidMount () {

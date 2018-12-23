@@ -16,17 +16,17 @@ return <div style={style.wrap}>
   <CardActionArea>
     <CardMedia
       component="img"
-      alt="Contemplative Reptile"
+      alt={props.item.native}
       height="140"
-      image="https://cdn.vox-cdn.com/thumbor/-bKrYahnwqww9sH9v2h34v9ViA0=/0x114:585x559/1200x800/filters:focal(248x297:340x389)/cdn.vox-cdn.com/uploads/chorus_image/image/57272301/Screen_Shot_2017_10_23_at_10.16.32_AM.0.png"
+      image={props.item.url}
       title="Contemplative Reptile"
     />
     <CardContent>
       <Typography gutterBottom variant="h6" component="h6" align="center">
-        Apple
+        {props.item.english}
       </Typography>
       <Typography variant="h6" component="h6" align="center">
-        Яблуко
+        {props.item.native}
       </Typography>
     </CardContent>
   </CardActionArea>

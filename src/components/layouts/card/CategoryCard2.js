@@ -15,10 +15,10 @@ export default props =>
       <CardActionArea >
         <CardContent>
           <Typography component="h6" variant="h6" color="primary">
-            Fruits
+            {props.titleObj.title}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            Englinsh - Українська
+            {`${props.titleObj.learnLenguage} - ${props.titleObj.nativeLenguage}`}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextField, Fab, Button} from '@material-ui/core'
-import Form from './Form'
+import Form from '../card/Form'
 
 const style = {
   item: {

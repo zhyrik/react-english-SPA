@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {addItems} from '../../../store/actions/add'
 import {TextField, Button} from '@material-ui/core'
-import Form from '../../auth/Form'
+import Form from '../card/Form'
 
 class Item {
   constructor (native, english, url) {

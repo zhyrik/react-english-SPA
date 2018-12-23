@@ -1,15 +1,27 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {addTitleObj} from '../../../store/actions/add'
 import {TextField, Button} from '@material-ui/core'
-import Form from '../../auth/Form'
+import Form from '../card/Form'
 
-const style = {
-  button: {
-    marginBottom: 8
+class TitleObj {
+  constructor (title, description, learnLenguage, nativeLenguage) {
+    this.title = title
+    this.description = description
+    this.learnLenguage = learnLenguage
+    this.nativeLenguage = nativeLenguage
+    this.stars = 0
+    this.starsCount = 0
+    this.learnCount = 0
+    this.promo = false
+    this.author = null
   }
 }
 
-export default class extends Component {
+class NewCategory extends Component {
   state = {
+    title: '',
+    description: '',
     english: 'English',
     native: 'Українська'
   }
@@ -17,6 +29,16 @@ export default class extends Component {
   changeLanguage (language, e) {
     this.setState({
       [language]: e.target.value
+    })
+  }
+
+  createTitleObj () {
+    const titleObj = new TitleObj(this.state.title, this.state.description, this.state.english, this.state.native)
+    this.props.addTitleObj(titleObj)
+
+    this.setState({
+      title: '',
+      description: ''
     })
   }
 
@@ -30,6 +52,8 @@ export default class extends Component {
           name="native"
           margin="normal"
           variant="filled"
+          value={this.state.title}
+          onChange={this.changeLanguage.bind(this, 'title')}
         />
         <TextField
           id="description-input"
@@ -40,6 +64,8 @@ export default class extends Component {
           name="english"
           margin="normal"
           variant="filled"
+          value={this.state.description}
+          onChange={this.changeLanguage.bind(this, 'description')}
         />
         <TextField
           id="englinsh-input"
@@ -61,10 +87,28 @@ export default class extends Component {
           value={this.state.native}
           onChange={this.changeLanguage.bind(this, 'native')}
         />
-        <Button variant="contained" color="primary" style={style.button}>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{marginBottom: 8}}
+          onClick={this.createTitleObj.bind(this)}
+        >
           Create
         </Button>
       </Form>
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    titleObj: state.add.titleObj
+  }
+}
+function mapDispatchToProps (dispatch) {
+  return {
+    addTitleObj: item => dispatch(addTitleObj(item))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCategory)

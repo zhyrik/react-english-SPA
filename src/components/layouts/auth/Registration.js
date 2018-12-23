@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextField, Button} from '@material-ui/core'
-import Form from './Form'
+import Form from '../card/Form'
 
 export default class extends React.Component {
   render () {

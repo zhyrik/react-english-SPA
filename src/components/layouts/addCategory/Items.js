@@ -1,13 +1,17 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import CategoryCard2 from '../card/CategoryCard2'
 import WordCard from '../card/WordCard'
 
-export default class extends React.Component {
+class Items extends React.Component {
 
   render () {
+    console.log('props', this.props.titleObj.title)
     return (
       <div style={{minWidth: '50%', maxWidth: '70%'}}>
-        <CategoryCard2 />
+        {this.props.titleObj.title
+          ? <CategoryCard2 titleObj={this.props.titleObj} />
+          : null}
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
           { this.props.items.map((item) => <WordCard item={item} />) }
         </div>
@@ -15,3 +19,12 @@ export default class extends React.Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return {
+    titleObj: state.add.titleObj,
+    items: state.add.items
+  }
+}
+
+export default connect(mapStateToProps)(Items)

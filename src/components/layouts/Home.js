@@ -21,11 +21,17 @@ class Home extends React.Component{
     this.props.getCategory()
   }
 
-  test = () => {
-    console.log(this.props.categoris)
-  }
-
   render () {
+    let items = null
+    const iterators = Object.keys(this.props.categoris)
+    console.log('1111', this.props.categoris)
+    if (iterators.length > 0) {
+      items = []
+      for (let i = 0; i < iterators.length; i++) {
+        items.push(<MyCard titleObj={this.props.categoris[iterators[i]].titleObj} key={iterators[i]} />)
+      }
+      console.log(items)
+    }
     return (
     <div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -47,7 +53,7 @@ class Home extends React.Component{
         </AppBar>
       </div>
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <Button onClick={this.test.bind(this)}>click</Button>
+        {items}
       </div>
     </div>
     )

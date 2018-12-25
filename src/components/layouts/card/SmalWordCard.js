@@ -6,7 +6,7 @@ export default props =>
   <CardActionArea>
     <CardContent>
       <Typography variant="h6" component="h6" align="center">
-        Яблуко
+        {props.word}
       </Typography>
     </CardContent>
   </CardActionArea>

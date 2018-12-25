@@ -5,6 +5,7 @@ import {Search} from '@material-ui/icons'
 import MyCard from './card/CategoryCard2'
 import {getCategory} from '../../store/actions/getComponent'
 
+
 const style = {
   inputWrap: {
     borderRadius: 5,
@@ -20,18 +21,19 @@ class Home extends React.Component{
   componentDidMount () {
     this.props.getCategory()
   }
-
   render () {
     let items = null
     const iterators = Object.keys(this.props.categoris)
-    console.log('1111', this.props.categoris)
     if (iterators.length > 0) {
       items = []
       for (let i = 0; i < iterators.length; i++) {
-        items.push(<MyCard titleObj={this.props.categoris[iterators[i]].titleObj} key={iterators[i]} />)
+        items.push(<MyCard
+          titleObj={this.props.categoris[iterators[i]].titleObj}
+          id={iterators[i]}
+          key={iterators[i]} />)
       }
-      console.log(items)
     }
+
     return (
     <div>
       <div style={{display: 'flex', justifyContent: 'center'}}>

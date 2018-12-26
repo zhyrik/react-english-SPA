@@ -7,32 +7,68 @@ class ThreeItems extends React.Component {
   state = {
     first: 0,
     second: 1,
-    three: 2
+    three: 2,
+    answer: 1
   }
-  random = () => {
-    const i = Math.floor(Math.random() * this.props.arrayWords.length)
-    return i
+  random = () => Math.floor(Math.random() * this.props.arrayWords.length)
+  randomToThree = () => Math.floor(Math.random() * 3)
+  checkSecond = (first, second) => {
+    if (second === first) {
+      second = this.random()
+      return this.checkSecond(first, second)
+    } else {
+      return second
+    }
   }
-  generateCardNumbers = () => {
-    console.log(this.random)
-    const first = Math.floor(Math.random() * this.props.arrayWords.length)
-    const second = Math.floor(Math.random() * this.props.arrayWords.length)
-    const three = Math.floor(Math.random() * this.props.arrayWords.length)
-    this.setState({
-      first,
-      second,
-      three
-    })
+  checkThree = (first, second, three) => {
+    if (three === first || three === second) {
+      three = this.random()
+      return this.checkThree(first, second, three)
+    } else {
+      return three
+    }
   }
+  generateWordNumber = () => {
+    console.log(this.randomToThree())
+    switch (this.randomToThree()) {
+      case 0:
+        this.setState({answer: this.state.first})
+      break;
+      case 1:
+        this.setState({answer: this.state.second})
+      break;
+      case 2:
+        this.setState({answer: this.state.three})
+      break;
+    }
+  }
+  generateCardNumbers = async () => {
+    const first = this.random()
+    let second = this.random()
+    let three = this.random()
+    second = this.checkSecond(first, second)
+    three = this.checkThree(first, second, three)
+    await this.setState({ first, second, three })
+    this.generateWordNumber()
+  }
+
+  checkAnswer = (numCard) => {
+    if (numCard === this.state.answer) {
+      this.generateCardNumbers()
+    } else {
+      console.log('error')
+    }
+  }
+  
 
   render () {
     return <div>
       <div style={{display: 'flex'}}>
-        <WordCard item={this.props.arrayWords[this.state.first]} action={this.generateCardNumbers} />
-        <WordCard item={this.props.arrayWords[this.state.second]}/>
-        <WordCard item={this.props.arrayWords[this.state.three]}/>
+        <WordCard item={this.props.arrayWords[this.state.first]} action={this.checkAnswer.bind(this,this.state.first)} />
+        <WordCard item={this.props.arrayWords[this.state.second]} action={this.checkAnswer.bind(this,this.state.second)} />
+        <WordCard item={this.props.arrayWords[this.state.three]} action={this.checkAnswer.bind(this,this.state.three)} />
       </div>
-      <SmalWordCard word={this.props.arrayWords[0].native} />
+      <SmalWordCard word={this.props.arrayWords[this.state.answer].native} />
     </div>
   }
 }

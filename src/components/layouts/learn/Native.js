@@ -8,7 +8,8 @@ class ThreeItems extends React.Component {
     first: 0,
     second: 1,
     three: 2,
-    answer: 1
+    answer: 1,
+    flag: false
   }
   random = () => Math.floor(Math.random() * this.props.arrayWords.length)
   randomToThree = () => Math.floor(Math.random() * 3)
@@ -29,7 +30,6 @@ class ThreeItems extends React.Component {
     }
   }
   generateWordNumber = () => {
-    console.log(this.randomToThree())
     switch (this.randomToThree()) {
       case 0:
         this.setState({answer: this.state.first})
@@ -59,16 +59,31 @@ class ThreeItems extends React.Component {
       console.log('error')
     }
   }
-  
 
   render () {
+    console.log(this.props.location)
     return <div>
       <div style={{display: 'flex'}}>
-        <WordCard item={this.props.arrayWords[this.state.first]} action={this.checkAnswer.bind(this,this.state.first)} />
-        <WordCard item={this.props.arrayWords[this.state.second]} action={this.checkAnswer.bind(this,this.state.second)} />
-        <WordCard item={this.props.arrayWords[this.state.three]} action={this.checkAnswer.bind(this,this.state.three)} />
+        <WordCard
+          item={this.props.arrayWords[this.state.first]}
+          action={this.checkAnswer.bind(this,this.state.first)}
+          flag={this.state.flag}
+        />
+        <WordCard
+          item={this.props.arrayWords[this.state.second]}
+          action={this.checkAnswer.bind(this,this.state.second)}
+          flag={this.state.flag}
+        />
+        <WordCard
+          item={this.props.arrayWords[this.state.three]}
+          action={this.checkAnswer.bind(this,this.state.three)}
+          flag={this.state.flag}
+        />
       </div>
-      <SmalWordCard word={this.props.arrayWords[this.state.answer].native} />
+      {this.state.flag
+        ?<SmalWordCard word={this.props.arrayWords[this.state.answer].native} />
+        :<SmalWordCard word={this.props.arrayWords[this.state.answer].english} />
+      }
     </div>
   }
 }

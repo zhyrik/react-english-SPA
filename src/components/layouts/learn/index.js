@@ -26,12 +26,12 @@ export default () =>(
             Slider
           </Button>
         </NavLink>
-        <NavLink to='/learn/englins' exact style={style.link}>
+        <NavLink to={{pathname: '/learn/native'}} exact style={style.link}>
           <Button variant="contained" color="primary" style={style.button}>
             English
           </Button>
         </NavLink>
-        <NavLink to='/learn/native' exact style={style.link}>
+        <NavLink to={{pathname: '/learn/native'}} exact style={style.link}>
           <Button variant="contained" color="primary" style={style.button}>
             Native
           </Button>
@@ -40,8 +40,7 @@ export default () =>(
     </AppBar>
   </div>
   <Route path="/learn" exact component={MySlider} />
-  <Route path="/learn/englins" exact component={Englisn} />
-  <Route path="/learn/native" exact component={Native} />
+  <Route path="/learn/native" exact component={Native} flag={true}/>
 </div>
 )
 

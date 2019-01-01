@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import WordCard from '../card/WordCard'
 import SmalWordCard from '../card/SmalWordCard'
 
@@ -8,7 +8,8 @@ class ThreeItems extends React.Component {
     first: 0,
     second: 1,
     three: 2,
-    answer: 1
+    answer: 1,
+    showItemFlags: [true, true, true]
   }
   random = () => Math.floor(Math.random() * this.props.arrayWords.length)
   randomToThree = () => Math.floor(Math.random() * 3)
@@ -51,33 +52,46 @@ class ThreeItems extends React.Component {
     this.generateWordNumber()
   }
 
-  checkAnswer = (numCard) => {
+  checkAnswer = (numCard, item) => {
     if (numCard === this.state.answer) {
       this.generateCardNumbers()
+      this.setState({
+        showItemFlags: [true, true, true]
+      })
     } else {
-      console.log('error')
+      const showItemFlags = [...this.state.showItemFlags]
+      showItemFlags[item] = false
+      this.setState({
+        showItemFlags
+      })
     }
   }
 
   render () {
-    console.log(this.props.location)
+    // console.log(this.props, this.state)
     return <div>
       <div style={{display: 'flex'}}>
-        <WordCard
-          item={this.props.arrayWords[this.state.first]}
-          action={this.checkAnswer.bind(this,this.state.first)}
-          flag={this.props.flag}
-        />
-        <WordCard
-          item={this.props.arrayWords[this.state.second]}
-          action={this.checkAnswer.bind(this,this.state.second)}
-          flag={this.props.flag}
-        />
-        <WordCard
-          item={this.props.arrayWords[this.state.three]}
-          action={this.checkAnswer.bind(this,this.state.three)}
-          flag={this.props.flag}
-        />
+        {this.state.showItemFlags[0]
+          ?<WordCard
+            item={this.props.arrayWords[this.state.first]}
+            action={this.checkAnswer.bind(this,this.state.first, 0)}
+            flag={this.props.flag}
+          />
+          :null}
+        {this.state.showItemFlags[1]
+          ? <WordCard
+            item={this.props.arrayWords[this.state.second]}
+            action={this.checkAnswer.bind(this,this.state.second, 1)}
+            flag={this.props.flag}
+          />
+          : null}
+        {this.state.showItemFlags[2]
+          ? <WordCard
+            item={this.props.arrayWords[this.state.three]}
+            action={this.checkAnswer.bind(this,this.state.three, 2)}
+            flag={this.props.flag}
+          />
+          : null}
       </div>
       {this.props.flag
         ?<SmalWordCard word={this.props.arrayWords[this.state.answer].native} />

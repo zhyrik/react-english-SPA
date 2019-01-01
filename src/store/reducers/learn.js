@@ -1,7 +1,8 @@
-import { GET_ARRAY_WORDS} from '../actions/actionTipes'
+import { GET_ARRAY_WORDS, LEARN_FLAG} from '../actions/actionTipes'
 
 const initialState = {
-  arrayWords: []
+  arrayWords: [],
+  learnFlag: true
 }
 
 export default function learnReducer (state = initialState, action) {
@@ -11,6 +12,11 @@ export default function learnReducer (state = initialState, action) {
       return {
         ...state,
         arrayWords: action.item
+      }
+    case LEARN_FLAG:
+      return{
+        ...state,
+        learnFlag: action.item
       }
     default: 
       return state

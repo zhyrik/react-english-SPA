@@ -4,6 +4,8 @@ import {AppBar, Toolbar, Button} from '@material-ui/core'
 import MySlider from './Slider'
 import Englisn from './English'
 import Native from './Native'
+import { connect } from 'react-redux'
+import { changeFlag } from '../../../store/actions/learn'
 
 const style = {
   button: {
@@ -16,7 +18,13 @@ const style = {
   }
 }
 
-export default () =>(
+function mapDispatchToProps (dispatch) {
+  return {
+    changeFlag: flag => dispatch(changeFlag(flag))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(props =>(
 <div>
   <div>
     <AppBar position="static" color="default">
@@ -27,12 +35,22 @@ export default () =>(
           </Button>
         </NavLink>
         <NavLink to={{pathname: '/learn/native'}} exact style={style.link}>
-          <Button variant="contained" color="primary" style={style.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            style={style.button}
+            onClick={props.changeFlag.bind(this, false)}
+          >
             English
           </Button>
         </NavLink>
         <NavLink to={{pathname: '/learn/native'}} exact style={style.link}>
-          <Button variant="contained" color="primary" style={style.button}>
+        <Button
+            variant="contained"
+            color="primary"
+            style={style.button}
+            onClick={props.changeFlag.bind(this, true)}
+          >
             Native
           </Button>
         </NavLink>
@@ -42,5 +60,5 @@ export default () =>(
   <Route path="/learn" exact component={MySlider} />
   <Route path="/learn/native" exact component={Native} flag={true}/>
 </div>
-)
+))
 

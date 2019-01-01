@@ -8,8 +8,7 @@ class ThreeItems extends React.Component {
     first: 0,
     second: 1,
     three: 2,
-    answer: 1,
-    flag: false
+    answer: 1
   }
   random = () => Math.floor(Math.random() * this.props.arrayWords.length)
   randomToThree = () => Math.floor(Math.random() * 3)
@@ -67,20 +66,20 @@ class ThreeItems extends React.Component {
         <WordCard
           item={this.props.arrayWords[this.state.first]}
           action={this.checkAnswer.bind(this,this.state.first)}
-          flag={this.state.flag}
+          flag={this.props.flag}
         />
         <WordCard
           item={this.props.arrayWords[this.state.second]}
           action={this.checkAnswer.bind(this,this.state.second)}
-          flag={this.state.flag}
+          flag={this.props.flag}
         />
         <WordCard
           item={this.props.arrayWords[this.state.three]}
           action={this.checkAnswer.bind(this,this.state.three)}
-          flag={this.state.flag}
+          flag={this.props.flag}
         />
       </div>
-      {this.state.flag
+      {this.props.flag
         ?<SmalWordCard word={this.props.arrayWords[this.state.answer].native} />
         :<SmalWordCard word={this.props.arrayWords[this.state.answer].english} />
       }
@@ -90,7 +89,8 @@ class ThreeItems extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    arrayWords: state.learn.arrayWords
+    arrayWords: state.learn.arrayWords,
+    flag: state.learn.learnFlag
   }
 }
 

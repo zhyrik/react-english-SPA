@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, NavLink} from 'react-router-dom'
 import {AppBar, Toolbar, Button} from '@material-ui/core'
 import MySlider from './Slider'
-import Englisn from './English'
 import Native from './Native'
 import { connect } from 'react-redux'
 import { changeFlag } from '../../../store/actions/learn'
@@ -39,7 +38,7 @@ export default connect(null, mapDispatchToProps)(props =>(
             variant="contained"
             color="primary"
             style={style.button}
-            onClick={props.changeFlag.bind(this, false)}
+            onClick={props.changeFlag.bind(this, [false, true])}
           >
             English
           </Button>
@@ -49,7 +48,7 @@ export default connect(null, mapDispatchToProps)(props =>(
             variant="contained"
             color="primary"
             style={style.button}
-            onClick={props.changeFlag.bind(this, true)}
+            onClick={props.changeFlag.bind(this, [true, false])}
           >
             Native
           </Button>

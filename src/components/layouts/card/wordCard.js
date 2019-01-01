@@ -21,14 +21,16 @@ export default props =>
         title="Contemplative Reptile"
       />
       <CardContent>
-        {props.flag
+        {props.flag[0]
           ? <Typography gutterBottom variant="h6" component="h6" align="center">
               {props.item.english}
             </Typography>
-          : <Typography variant="h6" component="h6" align="center">
+          : null}
+        {props.flag[1]
+          ? <Typography variant="h6" component="h6" align="center">
               {props.item.native}
             </Typography>
-        }
+          : null}
       </CardContent>
     </CardActionArea>
   </Card>

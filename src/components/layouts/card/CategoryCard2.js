@@ -15,7 +15,7 @@ const CategoryCard2 = props => {
   const muveToLearn = () => {
     console.log(props.categoris[props.id].items)
     props.getArrayWords(props.categoris[props.id].items)
-    props.history.push('/learn/native')
+    props.history.push('/learn')
   }
 
 return <div style={style.wrap}>

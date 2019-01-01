@@ -93,7 +93,7 @@ class ThreeItems extends React.Component {
           />
           : null}
       </div>
-      {this.props.flag
+      {this.props.flag[0]
         ?<SmalWordCard word={this.props.arrayWords[this.state.answer].native} />
         :<SmalWordCard word={this.props.arrayWords[this.state.answer].english} />
       }

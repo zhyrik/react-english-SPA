@@ -14,7 +14,7 @@ class TitleObj {
     this.starsCount = 0
     this.learnCount = 0
     this.promo = false
-    this.author = null
+    this.author = ''
   }
 }
 

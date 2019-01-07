@@ -37,7 +37,7 @@ class ThreeItems extends React.Component {
       case 1:
         this.setState({answer: this.state.second})
       break;
-      case 2:
+      default:
         this.setState({answer: this.state.three})
       break;
     }
@@ -109,3 +109,4 @@ function mapStateToProps (state) {
 }
 
 export default connect(mapStateToProps)(ThreeItems)
+

@@ -12,7 +12,7 @@ class Items extends React.Component {
           ? <CategoryCard2 titleObj={this.props.titleObj} />
           : null}
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
-          { this.props.items.map((item) => <WordCard item={item} />) }
+          { this.props.items.map((item) => <WordCard item={item} flag={[true, true]}/>) }
         </div>
       </div>
     )

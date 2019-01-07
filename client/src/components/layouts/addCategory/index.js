@@ -25,7 +25,7 @@ class Main extends Component {
   render () {
     return (
       <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'start'}}>
-        <div>
+        <div >
           <CardForm
             First={NewCategory}
             Second={AddItem}
@@ -36,7 +36,7 @@ class Main extends Component {
           <Button
             variant="contained"
             color="primary"
-            style={{marginTop: -40}}
+            style={{margin: '-40px 20px 0 20px', width: '260px'}}
             onClick={this.sendCategory.bind(this)}
           >
             Create

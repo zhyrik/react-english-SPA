@@ -17,11 +17,8 @@ export default props =>
       <NavLink to='/login' style={{color: '#ffffff', textDecoration: 'none'}}>
         <Button color="inherit" >Login</Button>
       </NavLink>
-      <NavLink to='/learn' style={{color: '#ffffff', textDecoration: 'none'}}>
-        <Button color="inherit" >Learn</Button>
-      </NavLink>
       <NavLink to='/add' style={{color: '#ffffff', textDecoration: 'none'}}>
-        <Button color="inherit" >add</Button>
+        <Button color="inherit" >add own categoris</Button>
       </NavLink>
     </Toolbar>
   </AppBar>

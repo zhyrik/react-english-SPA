@@ -94,7 +94,7 @@ class NewCategory extends Component {
           style={{marginBottom: 8}}
           onClick={this.createTitleObj.bind(this)}
         >
-          Create
+          Add category
         </Button>
       </Form>
     )

@@ -29,7 +29,7 @@ const CategoryType = new GraphQLObjectType({
     words: {
       type: new GraphQLList(WordType),
       resolve(parent, args) {
-        return  Word.find({ authorId: parent.id });
+        return  Word.find({ categoryId: parent.id });
       }
     }
   })
@@ -129,7 +129,7 @@ const Mutation = new GraphQLObjectType({
           promo: args.promo,
           author: args.author
         });
-        return word.save();
+        return category.save();
       }
     }
   }

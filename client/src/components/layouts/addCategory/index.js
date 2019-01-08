@@ -1,25 +1,32 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {sentCategory} from '../../../store/actions/add'
+import { graphql, compose } from 'react-apollo'
 import {Button} from '@material-ui/core'
 import CardForm from '../card/CardForm'
 import NewCategory from './NewCategoty'
 import AddItem from './AddItem'
 import Items from './Items'
-
-
-class Category {
-  constructor (title, items){
-    this.titleObj = title
-    this.items = items
-  }
-}
+import { addCategory, addWord } from '../../../querys'
 
 class Main extends Component {
 
   sendCategory () {
-    const newCategory = new Category(this.props.titleObj, this.props.items)
-    this.props.sentCategory(newCategory)
+    const category = this.props.titleObj
+    this.props.addCategory({
+      variables: {
+        title: category.title,
+        description: category.description,
+        learnLenguage: category.learnLenguage,
+        nativeLenguage: category.nativeLenguage,
+        stars: category.stars,
+        starsCount: category.starsCount,
+        learnCount: category.learnCount,
+        promo: category.promo,
+        author: category.author
+      }
+      // refetchQueries: [{query: getBooksQuery}]
+    })
+      .then(console.log(this.props))
   }
 
   render () {
@@ -55,10 +62,11 @@ function mapStateToProps (state) {
     category: state.add.category
   }
 }
-function mapDispatchToProps (dispatch) {
-  return {
-    sentCategory: item => dispatch(sentCategory(item))
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+const Store = connect(mapStateToProps)(Main)
+const Apollo = compose(
+  graphql(addCategory, {name: "addCategory"}),
+  graphql(addWord, {name: "addWord"})
+)(Store)
+
+export default Apollo

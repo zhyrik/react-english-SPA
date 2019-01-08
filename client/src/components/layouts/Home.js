@@ -39,7 +39,7 @@ class Home extends React.Component{
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <AppBar position="static" color="default">
           <Toolbar>
-            <Typography style={{flexGrow: 1}}></Typography>
+            <Typography style={{ flexGrow: 1 }}></Typography>
             <div style={style.inputWrap}>
               <div style={{marginRight: 10}}>
                 <Search />

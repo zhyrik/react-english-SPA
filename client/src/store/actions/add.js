@@ -1,5 +1,5 @@
 
-import {ADD_ITEM, ADD_TITLE_OBJ, DELETE_ITEMS} from './actionTipes'
+import { ADD_ITEM, ADD_TITLE_OBJ, DELETE_ITEMS } from './actionTipes'
 import axios from 'axios'
 
 export function addItems (item) {
@@ -25,7 +25,7 @@ export function addTitleObj (item) {
 
 export function sentCategory () {
   return async (dispatch, getState) => {
-
+    console.log(getState().add)
     await axios.post('https://react-english.firebaseio.com/category.json', getState().add)
 
     dispatch(deleteItems())

@@ -13,7 +13,6 @@ export function getCategory () {
 
     const GetCategory = await axios.get('https://react-english.firebaseio.com/category.json')
     dispatch(createCategoris(GetCategory))
-    console.log(GetCategory)
 
   }
 }

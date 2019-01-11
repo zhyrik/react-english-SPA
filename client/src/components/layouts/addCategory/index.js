@@ -6,27 +6,49 @@ import CardForm from '../card/CardForm'
 import NewCategory from './NewCategoty'
 import AddItem from './AddItem'
 import Items from './Items'
-import { addCategory, addWord } from '../../../querys'
+import { addCategory, addWord, getIds } from '../../../querys'
 
 class Main extends Component {
 
+  sendWords (res) {
+    const words = this.props.items
+    for (let i=0; i<words.length; i++) {
+      const word = words[i]
+      console.log('hello', word)
+      this.props.addWord({
+        variables: {
+          native: word.native,
+          english: word.english,
+          url: word.url,
+          categoryId: res.data.addCategory.id
+        }
+      })
+    }
+  }
+
   sendCategory () {
     const category = this.props.titleObj
-    this.props.addCategory({
-      variables: {
-        title: category.title,
-        description: category.description,
-        learnLenguage: category.learnLenguage,
-        nativeLenguage: category.nativeLenguage,
-        stars: category.stars,
-        starsCount: category.starsCount,
-        learnCount: category.learnCount,
-        promo: category.promo,
-        author: category.author
-      }
-      // refetchQueries: [{query: getBooksQuery}]
-    })
-      .then(console.log(this.props))
+    try {
+      this.props.addCategory({
+        variables: {
+          title: category.title,
+          description: category.description,
+          learnLenguage: category.learnLenguage,
+          nativeLenguage: category.nativeLenguage,
+          stars: category.stars,
+          starsCount: category.starsCount,
+          learnCount: category.learnCount,
+          promo: category.promo,
+          author: category.author
+        },
+        refetchQueries: [{query: getIds}]
+      })
+      .then(res => {
+        this.sendWords(res)
+      })
+    } catch (e) {
+      console.log('e',e)
+    }
   }
 
   render () {
@@ -63,10 +85,11 @@ function mapStateToProps (state) {
   }
 }
 
-const Store = connect(mapStateToProps)(Main)
-const Apollo = compose(
+const withStore = connect(mapStateToProps)(Main)
+const withApollo = compose(
   graphql(addCategory, {name: "addCategory"}),
-  graphql(addWord, {name: "addWord"})
-)(Store)
+  graphql(addWord, {name: "addWord"}),
+  graphql(getIds, {name: "getIds"})
+)(withStore)
 
-export default Apollo
+export default withApollo

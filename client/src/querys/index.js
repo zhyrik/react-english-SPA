@@ -10,10 +10,19 @@ mutation($title: String!, $description: String!, $learnLenguage: String!, $nativ
 
 const addWord = gql`
 mutation($native: String!, $english: String!, $url: String!, $categoryId: ID!){
-  addWord(native: $native, english: $english, utl: $url, categoryId: $categoryId){
+  addWord(native: $native, english: $english, url: $url, categoryId: $categoryId){
     id
   }
 }
 `
 
-export { addCategory, addWord }
+const getIds = gql`
+{
+  category{
+    id
+  }
+}
+
+`
+
+export { addCategory, addWord, getIds }

@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9c29b5cb-fe65-4c65-a690-b853028470df" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/querys/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/querys/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/schema/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/schema/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="513">
+              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -51,11 +50,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/schema/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="117" column="11" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="11" />
+            <state relative-caret-position="93">
+              <caret line="59" selection-start-line="59" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="word.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/models/word.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -69,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/querys/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+            <state relative-caret-position="73">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -109,9 +117,9 @@
         <option value="$PROJECT_DIR$/client/src/store/actions/getComponent.js" />
         <option value="$PROJECT_DIR$/client/src/store/actions/add.js" />
         <option value="$PROJECT_DIR$/client/src/index.js" />
-        <option value="$PROJECT_DIR$/server/schema/index.js" />
-        <option value="$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js" />
         <option value="$PROJECT_DIR$/client/src/querys/index.js" />
+        <option value="$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js" />
+        <option value="$PROJECT_DIR$/server/schema/index.js" />
       </list>
     </option>
   </component>
@@ -162,6 +170,12 @@
               <item name="react-english-spa" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-english-spa" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-english-spa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-english-spa" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react-english-spa" type="b2602c69:ProjectViewProjectNode" />
@@ -220,12 +234,12 @@
       <workItem from="1546945756883" duration="16165000" />
       <workItem from="1547115763475" duration="2507000" />
       <workItem from="1547135264556" duration="24000" />
-      <workItem from="1547236218758" duration="4357000" />
+      <workItem from="1547236218758" duration="8093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37480000" />
+    <option name="totallyTimeSpent" value="41216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -402,13 +416,6 @@
     <entry file="file://$PROJECT_DIR$/src/index.js" />
     <entry file="file://$PROJECT_DIR$/src/store/index.js" />
     <entry file="file://$PROJECT_DIR$/src/components/layouts/learn/Native.js" />
-    <entry file="file://$PROJECT_DIR$/server/models/word.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -493,27 +500,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/schema/index.js">
+    <entry file="file://$PROJECT_DIR$/client/src/querys/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="117" column="11" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="11" />
+        <state relative-caret-position="73">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/word.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="513">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/querys/index.js">
+    <entry file="file://$PROJECT_DIR$/server/schema/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+        <state relative-caret-position="93">
+          <caret line="59" selection-start-line="59" selection-end-line="60" />
         </state>
       </provider>
     </entry>

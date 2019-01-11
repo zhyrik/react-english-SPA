@@ -42,6 +42,7 @@ const WordType = new GraphQLObjectType({
     native: { type: GraphQLString },
     english: { type: GraphQLString },
     url: { type: GraphQLString },
+    categoryId: { type: GraphQLID},
     category: {
       type: CategoryType,
       resolve(parent, args) {
@@ -55,10 +56,10 @@ const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     word: {
-      type: WordType,
-      args: { id: { type: GraphQLID } },
+      type: new GraphQLList(WordType),
+      args: { categoryId: { type: GraphQLString } },
       resolve(parent, args){
-        return Word.findById(args.id);
+        return Word.find({ categoryId: args.categoryId });
       }
     },
     category: {
@@ -74,7 +75,7 @@ const RootQuery = new GraphQLObjectType({
         return Word.find({});
       }
     },
-    category: {
+    categorys: {
       type: new GraphQLList(CategoryType),
       resolve(parent, args) {
         return Category.find({});

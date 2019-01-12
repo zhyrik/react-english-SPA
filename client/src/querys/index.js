@@ -22,7 +22,17 @@ const getIds = gql`
     id
   }
 }
-
 `
 
-export { addCategory, addWord, getIds }
+const getCategorys = gql`
+{
+  categorys{
+    id
+    title
+    nativeLenguage
+    stars
+  }
+}
+`
+
+export { addCategory, addWord, getIds, getCategorys }

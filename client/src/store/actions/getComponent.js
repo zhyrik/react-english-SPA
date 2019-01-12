@@ -1,4 +1,4 @@
-import {GET_CATEGORY} from './actionTipes'
+import { GET_CATEGORY } from './actionTipes'
 import axios from 'axios'
 
 export function createCategoris (item) {

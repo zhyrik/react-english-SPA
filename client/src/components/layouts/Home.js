@@ -1,9 +1,12 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {AppBar, Toolbar, Typography, InputBase, Button} from '@material-ui/core'
-import {Search} from '@material-ui/icons'
+import { connect } from 'react-redux'
+import { AppBar, Toolbar, Typography, InputBase, Button } from '@material-ui/core'
+import { Search } from '@material-ui/icons'
 import MyCard from './card/CategoryCard2'
-import {getCategory} from '../../store/actions/getComponent'
+import { getCategory } from '../../store/actions/getComponent'
+import { getCategorys } from '../../querys'
+import { compose, graphql } from "react-apollo/index"
+import Loader from '../common/Loader/Loader'
 
 
 const style = {
@@ -19,19 +22,21 @@ const style = {
 class Home extends React.Component{
 
   componentDidMount () {
-    this.props.getCategory()
+    console.log(this.props.getCategorys)
+    setTimeout(() => {console.log(this.props.getCategorys.categorys[0])}, 3000)
+    //this.props.getCategory()
   }
   render () {
-    let items = null
-    const iterators = Object.keys(this.props.categoris)
-    if (iterators.length > 0) {
+    let items = <Loader />
+
+    if (false) {
       items = []
-      for (let i = 0; i < iterators.length; i++) {
-        items.push(<MyCard
-          titleObj={this.props.categoris[iterators[i]].titleObj}
-          id={iterators[i]}
-          key={iterators[i]} />)
-      }
+      //for (let i = 0; i < iterators.length; i++) {
+        // items.push(<MyCard
+        //   titleObj={this.props.getCategorys.categoris[i].title}
+        //   id={iterators[i]}
+        //   key={iterators[i]} />)
+      //}
     }
 
     return (
@@ -39,9 +44,9 @@ class Home extends React.Component{
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <AppBar position="static" color="default">
           <Toolbar>
-            <Typography style={{ flexGrow: 1 }}></Typography>
+            <Typography style={{ flexGrow: 1 }}> </Typography>
             <div style={style.inputWrap}>
-              <div style={{marginRight: 10}}>
+              <div style={{ marginRight: 10 }}>
                 <Search />
               </div>
               <InputBase
@@ -74,4 +79,9 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+
+const withStore = connect(mapStateToProps, mapDispatchToProps)(Home)
+const withApollo = compose(
+  graphql(getCategorys, {name: "getCategorys"})
+)(withStore)
+export default withApollo

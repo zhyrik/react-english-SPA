@@ -1,9 +1,10 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {Card, CardActions, CardContent, Typography, IconButton, CardActionArea } from '@material-ui/core'
-import {Favorite, Star} from '@material-ui/icons'
-import {getArrayWords} from '../../../store/actions/learn'
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Card, CardActions, CardContent, Typography, IconButton, CardActionArea } from '@material-ui/core'
+import { Favorite, Star } from '@material-ui/icons'
+import { getArrayWords } from '../../../store/actions/learn'
 
 const style ={
   wrap: {
@@ -11,23 +12,22 @@ const style ={
   }
 }
 
-const CategoryCard2 = props => {
+const CategoryCard2 = ({ categoris, title, learnLenguage, nativeLenguage, id, stars }) => {
+
   const muveToLearn = () => {
-    console.log(props.categoris[props.id].items)
-    props.getArrayWords(props.categoris[props.id].items)
-    props.history.push('/learn')
+
   }
 
 return <div style={style.wrap}>
   <Card>
-    <div style={{display: 'flex', justifyContent: 'space-between'}}>
-      <CardActionArea onClick={muveToLearn}>
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <CardActionArea onClick={ muveToLearn }>
         <CardContent>
           <Typography component="h6" variant="h6" color="primary">
-            {props.titleObj.title}
+            { title }
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            {`${props.titleObj.learnLenguage} - ${props.titleObj.nativeLenguage}`}
+            {`${ learnLenguage } - ${ nativeLenguage }`}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -49,11 +49,14 @@ return <div style={style.wrap}>
 </div>
 }
 
-function mapStateToProps (state) {
-  return {
-    categoris: state.getComponent.categoris
-  }
+CategoryCard2.propTypes = {
+  title: PropTypes.string.isRequired,
+  learnLenguage: PropTypes.string.isRequired,
+  nativeLenguage: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  stars: PropTypes.number.isRequired
 }
+
 
 function mapDispatchToProps (dispatch) {
   return {
@@ -61,4 +64,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CategoryCard2))
+export default withRouter(connect(null, mapDispatchToProps)(CategoryCard2))

@@ -30,6 +30,7 @@ const getCategorys = gql`
     id
     title
     nativeLenguage
+    learnLenguage
     stars
   }
 }

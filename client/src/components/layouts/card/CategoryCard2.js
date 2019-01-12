@@ -53,8 +53,8 @@ CategoryCard2.propTypes = {
   title: PropTypes.string.isRequired,
   learnLenguage: PropTypes.string.isRequired,
   nativeLenguage: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  stars: PropTypes.number.isRequired
+  id: PropTypes.string,
+  stars: PropTypes.number
 }
 
 

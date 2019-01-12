@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import { graphql, compose } from 'react-apollo'
 import {Button} from '@material-ui/core'
@@ -7,15 +7,28 @@ import NewCategory from './NewCategoty'
 import AddItem from './AddItem'
 import Items from './Items'
 import { addCategory, addWord, getIds } from '../../../querys'
+import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
 
-class Main extends Component {
+const styles = {
+  addWrap: {
+    display: 'grid',
+    gridTemplateColumns: '300px 1fr',
+    gridTemplateRows: '1fr 1fr',
+    gridGap: '0 3%'
+  },
+  addButton: {
+    margin: '-40px 20px 0 20px',
+    width: '260px'
+  }
+}
 
-  sendWords (res) {
-    const words = this.props.items
-    for (let i=0; i<words.length; i++) {
-      const word = words[i]
-      console.log('hello', word)
-      this.props.addWord({
+const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
+
+  const sendWords = (res) => {
+    for (let i=0; i<items.length; i++) {
+      const word = items[i]
+      addWord({
         variables: {
           native: word.native,
           english: word.english,
@@ -26,55 +39,52 @@ class Main extends Component {
     }
   }
 
-  sendCategory () {
-    const category = this.props.titleObj
+  const sendCategory = () => {
     try {
-      this.props.addCategory({
+      addCategory({
         variables: {
-          title: category.title,
-          description: category.description,
-          learnLenguage: category.learnLenguage,
-          nativeLenguage: category.nativeLenguage,
-          stars: category.stars,
-          starsCount: category.starsCount,
-          learnCount: category.learnCount,
-          promo: category.promo,
-          author: category.author
+          title: titleObj.title,
+          description: titleObj.description,
+          learnLenguage: titleObj.learnLenguage,
+          nativeLenguage: titleObj.nativeLenguage,
+          stars: titleObj.stars,
+          starsCount: titleObj.starsCount,
+          learnCount: titleObj.learnCount,
+          promo: titleObj.promo,
+          author: titleObj.author
         },
-        refetchQueries: [{query: getIds}]
+        refetchQueries: [{ query: getIds }]
       })
       .then(res => {
-        this.sendWords(res)
+        sendWords(res)
       })
     } catch (e) {
       console.log('e',e)
     }
   }
 
-  render () {
-    return (
-      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'start'}}>
-        <div >
-          <CardForm
-            First={NewCategory}
-            Second={AddItem}
-            title1={'Category'}
-            title2={'items'} 
-            titleOgj={this.props.titleOgj}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            style={{margin: '-40px 20px 0 20px', width: '260px'}}
-            onClick={this.sendCategory.bind(this)}
-          >
-            Create
-          </Button>
-        </div>
-        <Items />
+  return (
+    <div className={ classes.addWrap }>
+      <div >
+        <CardForm
+          First={ NewCategory }
+          Second={ AddItem }
+          title1={ 'Category' }
+          title2={ 'items' }
+          titleOgj={ titleObj }
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          className={ classes.addButton }
+          onClick={ sendCategory }
+        >
+          Create
+        </Button>
       </div>
-    )
-  }
+      <Items />
+    </div>
+  )
 }
 
 function mapStateToProps (state) {
@@ -85,7 +95,16 @@ function mapStateToProps (state) {
   }
 }
 
-const withStore = connect(mapStateToProps)(Main)
+Main.propTypes = {
+  classes: PropTypes.object.isRequired,
+  items: PropTypes.object,
+  titleObj: PropTypes.object,
+  addWord: PropTypes.func,
+  addCategory: PropTypes.func
+}
+
+const WithStyles = withStyles(styles)(Main)
+const withStore = connect(mapStateToProps)(WithStyles)
 const withApollo = compose(
   graphql(addCategory, {name: "addCategory"}),
   graphql(addWord, {name: "addWord"}),

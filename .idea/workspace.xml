@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c29b5cb-fe65-4c65-a690-b853028470df" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/components/layouts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layouts/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/layouts/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layouts/Footer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/components/layouts/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+            <state relative-caret-position="100">
+              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Footer.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/components/layouts/Footer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,6 +87,7 @@
       <find>console</find>
       <find>utl</find>
       <find>props</find>
+      <find>links</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,6 +117,7 @@
         <option value="$PROJECT_DIR$/client/src/components/layouts/card/CategoryCard2.js" />
         <option value="$PROJECT_DIR$/client/src/components/layouts/Home.js" />
         <option value="$PROJECT_DIR$/client/src/components/layouts/Header.js" />
+        <option value="$PROJECT_DIR$/client/src/components/layouts/Footer.js" />
       </list>
     </option>
   </component>
@@ -265,12 +279,12 @@
       <workItem from="1547115763475" duration="2507000" />
       <workItem from="1547135264556" duration="24000" />
       <workItem from="1547236218758" duration="8093000" />
-      <workItem from="1547296827913" duration="11547000" />
+      <workItem from="1547296827913" duration="12006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52763000" />
+    <option name="totallyTimeSpent" value="53222000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -303,13 +317,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/store/actions/getComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/layouts/addCategory/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -624,8 +631,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/layouts/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
+        <state relative-caret-position="100">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/layouts/Footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

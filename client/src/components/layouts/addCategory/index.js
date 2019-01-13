@@ -10,18 +10,36 @@ import { addCategory, addWord, getIds } from '../../../querys'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 
-const styles = {
+const styles = theme => ({
   addWrap: {
-    display: 'grid',
-    gridTemplateColumns: '300px 1fr',
-    gridTemplateRows: '1fr 1fr',
-    gridGap: '0 3%'
+    padding: '0 30px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      alignItems: 'start',
+    }
+  },
+  leftItem: {
+    width: '300px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    //marginRight: '30px',
+    [theme.breakpoints.up('md')]: {
+      marginRight: '30px',
+    }
   },
   addButton: {
     margin: '-40px 20px 0 20px',
-    width: '260px'
+    width: '260px',
+    [theme.breakpoints.down('md')]: {
+      width: '220px'
+    }
   }
-}
+})
 
 const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
 
@@ -65,7 +83,7 @@ const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
 
   return (
     <div className={ classes.addWrap }>
-      <div >
+      <div className={ classes.leftItem }>
         <CardForm
           First={ NewCategory }
           Second={ AddItem }
@@ -90,17 +108,14 @@ const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
 function mapStateToProps (state) {
   return {
     items: state.add.items,
-    titleObj: state.add.titleObj,
-    category: state.add.category
+    titleObj: state.add.titleObj
   }
 }
 
 Main.propTypes = {
   classes: PropTypes.object.isRequired,
   items: PropTypes.object,
-  titleObj: PropTypes.object,
-  addWord: PropTypes.func,
-  addCategory: PropTypes.func
+  titleObj: PropTypes.object
 }
 
 const WithStyles = withStyles(styles)(Main)

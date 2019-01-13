@@ -4,7 +4,7 @@ import CategoryCard2 from '../card/CategoryCard2'
 import WordCard from '../card/WordCard'
 
 const Items = ({ titleObj, items }) => (
-  <div >
+  <div style={{ width: '100%', marginTop: '40px'}}>
     { titleObj.title
       ? <CategoryCard2
           title={ titleObj.title }

@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {auth} from '../../../store/actions/auth'
-import { TextField, Fab, Button} from '@material-ui/core'
+import { connect } from 'react-redux'
+import { auth } from '../../../store/actions/auth'
+import { TextField, Fab, Button } from '@material-ui/core'
 import Form from '../card/Form'
 
 const style = {

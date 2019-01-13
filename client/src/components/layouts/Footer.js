@@ -23,15 +23,15 @@ const Footer = ({ classes }) => {
       icon: fb
     },
     {
-      link: 'https://www.facebook.com/zhyriki',
+      link: 'https://github.com/zhyrik/react-english-SPA',
       icon: github
     },
     {
-      link: 'https://www.facebook.com/zhyriki',
+      link: 'mailto:zhuriki@ukr.net',
       icon: mail
     },
     {
-      link: 'https://www.facebook.com/zhyriki',
+      link: 'https://www.linkedin.com/in/oleh-zhurovskyi-26b9bb175/',
       icon: IN
     },
   ]
@@ -42,12 +42,13 @@ const Footer = ({ classes }) => {
         {links.map((link, index) => {
           return <Fab
             variant="contained"
-            href={link.link}
+            href={ link.link }
+            target="_blank"
             size= "small"
-            key={index}
+            key={ index }
             className={ classes.social }
           >
-          {<img src={link.icon} style={{ width: '40px'}}/>}
+          {<img src={ link.icon } style={{ width: '40px' }}/>}
         </Fab>
         })}
       </div>

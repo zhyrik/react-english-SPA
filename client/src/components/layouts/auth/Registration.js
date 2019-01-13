@@ -10,6 +10,7 @@ class Password extends React.Component {
     password: '',
     repeatPassword: ''
   }
+
   registrationHandler = () => {
     console.log(this.state.email)
     this.props.auth(
@@ -18,6 +19,7 @@ class Password extends React.Component {
       false
     )
   }
+
   render () {
     return <Form>
       <TextField

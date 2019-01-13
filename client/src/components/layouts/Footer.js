@@ -1,6 +1,7 @@
 import React from 'react'
 import { Paper, Typography, Fab } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+import { fb, github, mail, IN } from '../../icon'
 
 const styles = {
   text: {
@@ -19,19 +20,19 @@ const Footer = ({ classes }) => {
   const links = [
     {
       link: 'https://www.facebook.com/zhyriki',
-      icon: 'fb'
+      icon: fb
     },
     {
       link: 'https://www.facebook.com/zhyriki',
-      icon: 'fb'
+      icon: github
     },
     {
       link: 'https://www.facebook.com/zhyriki',
-      icon: 'fb'
+      icon: mail
     },
     {
       link: 'https://www.facebook.com/zhyriki',
-      icon: 'fb'
+      icon: IN
     },
   ]
 
@@ -46,7 +47,7 @@ const Footer = ({ classes }) => {
             key={index}
             className={ classes.social }
           >
-          {link.icon}
+          {<img src={link.icon} style={{ width: '40px'}}/>}
         </Fab>
         })}
       </div>

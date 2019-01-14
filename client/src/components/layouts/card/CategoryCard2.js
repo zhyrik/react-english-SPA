@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { Card, CardActions, CardContent, Typography, IconButton, CardActionArea } from '@material-ui/core'
-import { Favorite, Star } from '@material-ui/icons'
-import { getArrayWords } from '../../../store/actions/learn'
+import { Favorite, Star } from '@material-ui/icons''
 
 const style ={
   wrap: {
@@ -12,16 +10,18 @@ const style ={
   }
 }
 
-const CategoryCard2 = ({ categoris, title, learnLenguage, nativeLenguage, id, stars }) => {
+const CategoryCard2 = ({ categoris, title, learnLenguage, nativeLenguage, id, stars, history }) => {
 
-  const muveToLearn = () => {
-
+  let counter = []
+  for (let i=0; i<stars; i++) {
+    counter.push(1)
   }
+
 
 return <div style={style.wrap}>
   <Card>
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <CardActionArea onClick={ muveToLearn }>
+      <CardActionArea onClick={ () => history.push('/learn?' + id ) }>
         <CardContent>
           <Typography component="h6" variant="h6" color="primary">
             { title }
@@ -37,11 +37,7 @@ return <div style={style.wrap}>
           <Favorite />
         </IconButton>
         <IconButton aria-label="Share">
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
+          { counter.map((i) => { return <Star key={i}/>}) }
         </IconButton>
       </CardActions>
     </div>
@@ -57,11 +53,4 @@ CategoryCard2.propTypes = {
   stars: PropTypes.number
 }
 
-
-function mapDispatchToProps (dispatch) {
-  return {
-    getArrayWords: (item) => dispatch(getArrayWords(item))
-  }
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(CategoryCard2))
+export default withRouter(CategoryCard2)

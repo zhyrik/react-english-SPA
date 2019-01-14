@@ -42,7 +42,7 @@ const WordType = new GraphQLObjectType({
     native: { type: GraphQLString },
     english: { type: GraphQLString },
     url: { type: GraphQLString },
-    categoryId: { type: GraphQLID},
+    categoryId: { type: GraphQLString},
     category: {
       type: CategoryType,
       resolve(parent, args) {

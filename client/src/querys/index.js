@@ -36,4 +36,15 @@ const getCategorys = gql`
 }
 `
 
-export { addCategory, addWord, getIds, getCategorys }
+const getWordsQuery = gql`
+query getSome($categoryId:String!){
+  word(categoryId: $categoryId){
+    native
+    english
+    url
+    categoryId
+  }
+}
+`
+
+export { addCategory, addWord, getIds, getCategorys, getWordsQuery }

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { auth } from '../../../store/actions/auth'
 import { TextField, Fab, Button } from '@material-ui/core'
 import Form from '../card/Form'
+import validator from 'validator'
+
 
 const style = {
   item: {
@@ -13,10 +15,14 @@ const style = {
 class Login extends React.Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    validatorEmail: true,
+    labelEmail: 'Email',
+    validatorPassword: true,
+    labelPassword: 'Password'
   }
+
   loginHandler = () => {
-    console.log(this.state.email)
     this.props.auth(
       this.state.email,
       this.state.password,
@@ -24,25 +30,57 @@ class Login extends React.Component {
     )
   }
 
+  checkEmail = e => {
+    const flag = validator.isEmail(e.target.value)
+    this.setState({
+      validatorEmail: flag,
+      labelEmail: 'Email'
+    }, () => {
+      if ( !this.state.validatorEmail ) {
+        this.setState({
+          labelEmail: 'It is not email'
+        })
+      }
+    })
+  }
+
+  checkPassword = e => {
+    const flag = validator.isLength(e.target.value, {min:7, max: 20})
+    this.setState({
+      validatorPassword: flag,
+      labelPassword: 'Password'
+    }, () => {
+      if ( !this.state.validatorPassword ) {
+        this.setState({
+          labelPassword: 'Password is too short'
+        })
+      }
+    })
+  }
+
   render () {
     return <Form>
       <TextField
         id="filled-email-input"
-        label="Email"
+        label={ this.state.labelEmail }
         type="email"
         name="email"
         autoComplete="email"
         margin="normal"
         variant="filled"
+        error={ !this.state.validatorEmail }
+        onBlur={ this.checkEmail }
         onChange={event => {this.setState({email: event.target.value})}}
       />
       <TextField
         id="filled-password-input"
-        label="Password"
+        label={ this.state.labelPassword }
         type="password"
         autoComplete="current-password"
         margin="normal"
         variant="filled"
+        error={ !this.state.validatorPassword }
+        onBlur={ this.checkPassword }
         onChange={event => {this.setState({password: event.target.value})}}
       />
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -55,6 +93,8 @@ class Login extends React.Component {
         color="primary"
         style={style.item}
         onClick={this.loginHandler}
+        disabled={ !this.state.validatorEmail || !this.state.validatorPassword ||
+        this.state.email.length < 1 || this.state.password.length < 1}
       >
         Login
       </Button>

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { Card, CardActions, CardContent, Typography, IconButton, CardActionArea } from '@material-ui/core'
-import { Favorite, Star } from '@material-ui/icons''
+import { Favorite, Star } from '@material-ui/icons'
 
 const style ={
   wrap: {

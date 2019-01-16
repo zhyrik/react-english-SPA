@@ -11,8 +11,11 @@ class ThreeItems extends React.Component {
     answer: 1,
     showItemFlags: [true, true, true]
   }
+
   random = () => Math.floor(Math.random() * this.props.arrayWords.length)
+
   randomToThree = () => Math.floor(Math.random() * 3)
+
   checkSecond = (first, second) => {
     if (second === first) {
       second = this.random()
@@ -20,7 +23,7 @@ class ThreeItems extends React.Component {
     } else {
       return second
     }
-  }
+}
   checkThree = (first, second, three) => {
     if (three === first || three === second) {
       three = this.random()
@@ -29,6 +32,7 @@ class ThreeItems extends React.Component {
       return three
     }
   }
+
   generateWordNumber = () => {
     switch (this.randomToThree()) {
       case 0:
@@ -42,6 +46,7 @@ class ThreeItems extends React.Component {
       break;
     }
   }
+
   generateCardNumbers = async () => {
     const first = this.random()
     let second = this.random()

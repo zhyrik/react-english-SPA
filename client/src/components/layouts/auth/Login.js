@@ -4,6 +4,7 @@ import { auth } from '../../../store/actions/auth'
 import { TextField, Fab, Button } from '@material-ui/core'
 import Form from '../card/Form'
 import validator from 'validator'
+import {fb, github, IN, mail} from "../../../icon";
 
 
 const style = {
@@ -11,6 +12,21 @@ const style = {
     margin: '10px 0'
   }
 }
+
+const links = [
+  {
+    link: 'https://www.facebook.com/zhyriki',
+    icon: fb
+  },
+  {
+    link: 'https://github.com/zhyrik/react-english-SPA',
+    icon: github
+  },
+  {
+    link: 'https://www.linkedin.com/in/oleh-zhurovskyi-26b9bb175/',
+    icon: IN
+  }
+]
 
 class Login extends React.Component {
   state = {
@@ -84,9 +100,17 @@ class Login extends React.Component {
         onChange={event => {this.setState({password: event.target.value})}}
       />
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        <Fab variant="contained" href={'#'} size= "small" style={style.item}>fb</Fab>
-        <Fab variant="contained" href={'#'} size= "small" style={style.item}>fb</Fab>
-        <Fab variant="contained" href={'#'} size= "small" style={style.item}>fb</Fab>
+        {links.map((link, index) => {
+          return <Fab
+            variant="contained"
+            href={ link.link }
+            target="_blank"
+            size= "small"
+            key={ index }
+          >
+            {<img src={ link.icon } style={{ width: '40px' }}/>}
+          </Fab>
+        })}
       </div>
       <Button
         variant="contained"

@@ -27,7 +27,6 @@ const styles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    //marginRight: '30px',
     [theme.breakpoints.up('md')]: {
       marginRight: '30px',
     }
@@ -96,6 +95,7 @@ const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
           color="primary"
           className={ classes.addButton }
           onClick={ sendCategory }
+          disabled={ items.length < 2 || !titleObj.title }
         >
           Create
         </Button>

@@ -10,7 +10,7 @@ class TitleObj {
     this.description = description
     this.learnLenguage = learnLenguage
     this.nativeLenguage = nativeLenguage
-    this.stars = 0
+    this.stars = 5
     this.starsCount = 0
     this.learnCount = 0
     this.promo = false
@@ -93,6 +93,8 @@ class NewCategory extends Component {
           color="primary"
           style={{marginBottom: 8}}
           onClick={this.createTitleObj.bind(this)}
+          disabled={ !this.state.description || !this.state.english ||
+          !this.state.native || !this.state.title }
         >
           Add category
         </Button>

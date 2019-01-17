@@ -95,6 +95,8 @@ class AddItem extends Component {
           color="primary"
           style={{marginBottom: 8}}
           onClick={this.createItem.bind(this)}
+          disabled={ !this.state.english ||
+          !this.state.native || !this.state.url }
         >
           Add
         </Button>

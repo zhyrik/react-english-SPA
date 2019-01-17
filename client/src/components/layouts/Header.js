@@ -53,7 +53,7 @@ class Header extends React.Component {
             <MenuIcon/>
           </IconButton>
           <NavLink to='/' exact className={classes.navLink}>
-            <Button color="inherit">Zhurik</Button>
+            <Button color="inherit">Home</Button>
           </NavLink>
           <Typography style={{flexGrow: 1}}> </Typography>
           <NavLink to='/login' className={classes.navLink}>

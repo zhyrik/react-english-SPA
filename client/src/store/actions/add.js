@@ -9,10 +9,9 @@ export function addItems (item) {
   }
 }
 
-export function deleteItems (item) {
+export function deleteItems () {
   return {
-    type: DELETE_ITEMS,
-    item
+    type: DELETE_ITEMS
   }
 }
 

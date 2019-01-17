@@ -9,6 +9,7 @@ import Items from './Items'
 import { addCategory, addWord, getIds } from '../../../querys'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
+import {deleteItems, addTitleObj} from "../../../store/actions/add";
 
 const styles = theme => ({
   addWrap: {
@@ -40,10 +41,12 @@ const styles = theme => ({
   }
 })
 
-const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
+const Main = ({ classes, items, titleObj, addWord, addCategory, addTitleObj, deleteItems }) => {
 
   const sendWords = (res) => {
+    let counter = 0
     for (let i=0; i<items.length; i++) {
+      counter++
       const word = items[i]
       addWord({
         variables: {
@@ -53,6 +56,10 @@ const Main = ({ classes, items, titleObj, addWord, addCategory }) => {
           categoryId: res.data.addCategory.id
         }
       })
+        .then(() => {if(counter >= items.length) {
+          addTitleObj({});
+          deleteItems()
+        }})
     }
   }
 
@@ -111,6 +118,12 @@ function mapStateToProps (state) {
     titleObj: state.add.titleObj
   }
 }
+function mapDispatchToProps (dispatch) {
+  return {
+    addTitleObj: item => dispatch(addTitleObj(item)),
+    deleteItems: (item) => dispatch(deleteItems(item))
+  }
+}
 
 Main.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -119,7 +132,7 @@ Main.propTypes = {
 }
 
 const WithStyles = withStyles(styles)(Main)
-const withStore = connect(mapStateToProps)(WithStyles)
+const withStore = connect(mapStateToProps, mapDispatchToProps)(WithStyles)
 const withApollo = compose(
   graphql(addCategory, {name: "addCategory"}),
   graphql(addWord, {name: "addWord"}),

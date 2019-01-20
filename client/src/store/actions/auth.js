@@ -47,6 +47,5 @@ export function logout () {
   localStorage.removeItem('inspirationDate ')
   return {
     type: AUTO_LOGOUT,
-
   }
 }

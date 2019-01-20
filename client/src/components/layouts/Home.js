@@ -70,7 +70,7 @@ const Home = ({ classes, getCategorys }) => {
           color="primary"
           className={ classes.button }
         >
-          Primary
+          Search
         </Button>
       </Toolbar>
     </AppBar>

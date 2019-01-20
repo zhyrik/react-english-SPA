@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import {AppBar, Toolbar, IconButton, Typography, Button, Divider, Drawer, List,
-  ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
+  ListItem, ListItemText } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import Close from '@material-ui/icons/Close'
 

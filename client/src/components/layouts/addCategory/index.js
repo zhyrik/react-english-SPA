@@ -56,7 +56,8 @@ const Main = ({ classes, items, titleObj, addWord, addCategory, addTitleObj, del
           categoryId: res.data.addCategory.id
         }
       })
-        .then(() => {if(counter >= items.length) {
+        // eslint-disable-next-line no-loop-func
+        .then(() => { if(counter >= items.length) {
           addTitleObj({});
           deleteItems()
         }})

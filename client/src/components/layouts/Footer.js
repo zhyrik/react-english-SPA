@@ -48,7 +48,7 @@ const Footer = ({ classes }) => {
             key={ index }
             className={ classes.social }
           >
-          {<img src={ link.icon } style={{ width: '40px' }}/>}
+          {<img src={ link.icon } style={{ width: '40px' }} alt="icon" />}
         </Fab>
         })}
       </div>

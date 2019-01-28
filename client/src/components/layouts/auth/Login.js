@@ -4,7 +4,7 @@ import { auth } from '../../../store/actions/auth'
 import { TextField, Fab, Button } from '@material-ui/core'
 import Form from '../card/Form'
 import validator from 'validator'
-import {fb, github, IN, mail} from "../../../icon";
+import { fb, github, IN } from "../../../icon";
 
 
 const style = {
@@ -108,7 +108,7 @@ class Login extends React.Component {
             size= "small"
             key={ index }
           >
-            {<img src={ link.icon } style={{ width: '40px' }}/>}
+            {<img src={ link.icon } style={{ width: '40px' }} alt="icon" />}
           </Fab>
         })}
       </div>

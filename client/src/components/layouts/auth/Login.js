@@ -13,6 +13,7 @@ const style = {
   }
 }
 
+// Links for social media
 const links = [
   {
     link: 'https://www.facebook.com/zhyriki',

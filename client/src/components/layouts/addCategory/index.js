@@ -1,15 +1,16 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { graphql, compose } from 'react-apollo'
-import {Button} from '@material-ui/core'
+import { Button } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+
 import CardForm from '../card/CardForm'
 import NewCategory from './NewCategoty'
 import AddItem from './AddItem'
 import Items from './Items'
 import { addCategory, addWord, getIds } from '../../../querys'
-import { withStyles } from '@material-ui/core/styles'
-import PropTypes from 'prop-types'
-import {deleteItems, addTitleObj} from "../../../store/actions/add";
+import { deleteItems, addTitleObj } from "../../../store/actions/add";
 
 const styles = theme => ({
   addWrap: {
@@ -41,6 +42,17 @@ const styles = theme => ({
   }
 })
 
+/**
+ * funcrional component, main component for 'Add own category' page
+ * 
+ * @param {object} classes -materialUi styles
+ * @param {object} items - redux state
+ * @param {object} titleObj -redux state
+ * @param {object} addWord -graphQl
+ * @param {object} addCategory -graphQl
+ * @param {function} addTitleObj -redux dispatch
+ * @param {function} deleteItems -redux dispatch
+ */
 const Main = ({ classes, items, titleObj, addWord, addCategory, addTitleObj, deleteItems }) => {
 
   const sendWords = (res) => {
@@ -56,7 +68,7 @@ const Main = ({ classes, items, titleObj, addWord, addCategory, addTitleObj, del
           categoryId: res.data.addCategory.id
         }
       })
-        // eslint-disable-next-line no-loop-func
+        // (error) eslint-disable-next-line  Don't make functions within a loop  no-loop-func
         .then(() => { if(counter >= items.length) {
           addTitleObj({});
           deleteItems()
@@ -84,6 +96,7 @@ const Main = ({ classes, items, titleObj, addWord, addCategory, addTitleObj, del
         sendWords(res)
       })
     } catch (e) {
+      // need create errors component !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       console.log('e',e)
     }
   }
@@ -132,6 +145,7 @@ Main.propTypes = {
   titleObj: PropTypes.object
 }
 
+// high order components MaterialUi styles => Redux => Apollo
 const WithStyles = withStyles(styles)(Main)
 const withStore = connect(mapStateToProps, mapDispatchToProps)(WithStyles)
 const withApollo = compose(
